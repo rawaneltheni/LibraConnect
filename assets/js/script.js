@@ -69,3 +69,6 @@ const toggleRow = (id) => {
 
 // Initial load
 renderTable();
+
+
+

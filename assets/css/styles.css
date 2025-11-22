@@ -1,0 +1,108 @@
+body {
+    background-color: #f6f8fa;
+    color: #24292e; 
+    font-family: 'Inter', sans-serif; 
+    margin: 0;
+}
+
+/* ==================== HISTORY ==================== */
+
+.page {
+    padding: 60px 40px; 
+}
+
+h1 {
+    font-size: 2.2rem; 
+    margin-bottom: 25px;
+    font-weight: 600; 
+    border-bottom: 2px solid #eaecef; 
+    padding-bottom: 10px;
+}
+
+.table-wrapper {
+    background-color: #ffffff; 
+    border-radius: 12px; 
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #e1e4e8; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 18px 20px; 
+    font-size: 0.9rem; 
+    text-align: left; 
+    border-bottom: 1px solid #eaecef; 
+}
+
+thead {
+    background-color: #f6f8fa;
+    color: #586069; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+}
+
+tr:nth-child(even) {
+    background-color: #fafbfc; 
+}
+
+tr:hover {
+    background-color: #eff3f6; 
+    transition: background-color 0.3s;
+}
+
+/* Status chips */
+.badge {
+    padding: 6px 14px;
+    border-radius: 20px; 
+    font-size: 0.75rem; 
+    font-weight: 700;
+    color: white; 
+    text-transform: uppercase;
+}
+
+.returned { background-color: #28a745; } 
+.overdue { background-color: #dc3545; } 
+.borrowed { background-color: #ffc107; color: #212529; } 
+
+.details-btn {
+    /* Standard link blue */
+    color: #0366d6; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.details-btn:hover {
+    text-decoration: underline;
+    color: #005cc5; /* Slightly darker blue on hover */
+}
+
+.details-row {
+    /* A slightly darker background than the body for an inset look */
+    background-color: #f0f3f6; 
+}
+
+.book-cell {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.book-cover {
+    width: 60px; 
+    height: 85px;
+    object-fit: cover;
+    border-radius: 6px; 
+    /* Subtler border */
+    border: 1px solid #e1e4e8; 
+    /* Subtle shadow on cover */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+}

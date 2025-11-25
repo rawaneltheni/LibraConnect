@@ -12,11 +12,11 @@
     
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form action="index.html" method="POST" onsubmit="return validateCaptcha();">
+        <form action="index.html" onsubmit="return handleSubmit();">
             <h1>Create Account</h1>
             <input type="text" placeholder="Name" required/>
             <input type="email" placeholder="Email" required/>
-            <input type="password" placeholder="Password" minlength="6" required/>
+            <input type="password" placeholder="Password" id="password" required/>
             
             <!-- Google reCAPTCHA widget -->
             <div class="g-recaptcha" data-sitekey="6LfEFRcsAAAAAMJqdo92Ir8TYO-cMc0F6csZNYfv"></div>

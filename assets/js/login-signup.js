@@ -18,8 +18,16 @@ signInButton.addEventListener('click', () => {
 const forms = document.querySelectorAll("form");
 
 forms.forEach(form => {
-    form.addEventListener("submit", function(event) {
-      	event.preventDefault(); // stop the default redirect
+
+	form.addEventListener("submit", function(event) {
+
+   		// If password or captcha fail → stop here
+    	if (!handleSubmit()) {
+        	event.preventDefault();
+       		return;
+    	}
+
+    	event.preventDefault();
 
 		const emailInput = form.querySelector('input[type="email"]');
 		const email = emailInput.value.trim();
@@ -42,4 +50,22 @@ function validateCaptcha() {
         return false;
     }
     return true;
+}
+
+// ==================== Password length check ====================
+function validateForm() {
+    const pw = document.getElementById("password").value;
+    
+    if (pw.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return false; 
+    }
+
+    return true; 
+}
+
+// ==================== Handle submission====================
+
+function handleSubmit() {
+    return validateForm() && validateCaptcha();
 }

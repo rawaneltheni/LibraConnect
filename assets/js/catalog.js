@@ -147,12 +147,15 @@ const panelGenre = document.getElementById("panelGenre");
 const panelIntro = document.getElementById("panelIntro");
 
 // Open panel when book card is clicked
+/*.closest(selector) is a DOM method that goes up 
+the DOM tree from the clicked element to find 
+the nearest ancestor that matches the selector.*/
 document.addEventListener("click", (e) => {
-  const card = e.target.closest(".book-card");
-  if (!card) return;
+  const card = e.target.closest(".book-card");//the click is only fired if its the card it self or its childern
+  if (!card) return;//If i click anywhere else but the card it woudn't work
 
-  const index = card.dataset.index;
-  const book = books[index];
+  // const index = card.dataset.index;
+  // const book = books[index];
 
   // Fill panel with book info
   panelImage.src = book.image;
@@ -177,3 +180,23 @@ overlay.onclick = () => {
   slidePanel.classList.remove("open");
   overlay.classList.remove("show");
 };
+
+
+document.addEventListener('includesLoaded', () => {
+  const searchInput = document.getElementById("searchBox");
+  const bookCards = document.querySelectorAll(".book-card"); // all book cards
+
+  searchInput.addEventListener("keyup", () => {
+    const query = searchInput.value.toLowerCase(); // get input and lowercase
+
+    bookCards.forEach(card => {
+      const title = card.querySelector("h5").textContent.toLowerCase(); // get book title
+      if (title.includes(query)) {
+        card.style.display = ""; // show card
+      } else {
+        card.style.display = "none"; // hide card
+      }
+    });
+  });
+
+})

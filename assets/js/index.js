@@ -72,16 +72,5 @@ function renderFeatured() {
 document.addEventListener('DOMContentLoaded', renderFeatured);
 
 
-// Search function
-function search() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
 
-  let items = ["math book", "science book", "history book", "english book"];
-
-  let foundItem = items.find(item => item.toLowerCase().includes(input));
-
-  document.getElementById("result").textContent = foundItem
-    ? "Found: " + foundItem
-    : "No results found.";
-}
 

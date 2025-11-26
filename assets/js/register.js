@@ -15,7 +15,7 @@ signInButton.addEventListener('click', () => {
 
 // ==================== Check @limu.edu.ly ====================
 
-const forms = document.querySelectorAll("form");
+const forms = document.querySelectorAll("form.limu-check");
 
 forms.forEach(form => {
 
@@ -67,5 +67,5 @@ function validateForm() {
 // ==================== Handle submission====================
 
 function handleSubmit() {
-    return validateForm() && validateCaptcha();
+    return validateForm() && validateCaptcha() ;
 }

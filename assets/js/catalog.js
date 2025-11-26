@@ -186,6 +186,8 @@ document.addEventListener('includesLoaded', () => {
   const searchInput = document.getElementById("searchBox");
   const bookCards = document.querySelectorAll(".book-card"); // all book cards
 
+  //addEventListener() takes 3 parameters — but you mostly use the first two.
+  // the event, the callback function, the options 
   searchInput.addEventListener("keyup", () => {
     const query = searchInput.value.toLowerCase(); // get input and lowercase
 

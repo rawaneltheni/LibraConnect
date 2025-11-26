@@ -5,7 +5,7 @@
 }
 
 body {
-	background: #f6f5f7;
+	background: #F6F2EB;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -18,10 +18,12 @@ body {
 h1 {
 	font-weight: bold;
 	margin: 0;
+	color: #5B4A3E;
 }
 
 h2 {
 	text-align: center;
+	color: #5B4A3E;
 }
 
 p {
@@ -30,14 +32,16 @@ p {
 	line-height: 20px;
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
+	color: #5B4A3E;
 }
 
 span {
 	font-size: 12px;
+	color: #5B4A3E;
 }
 
 a {
-	color: #333;
+	color: #5B4A3E;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
@@ -45,8 +49,8 @@ a {
 
 button {
     border-radius: 20px;
-    border: 1px solid #003366;       
-    background-color: #003366;        
+    border: 1px solid #5B4A3E;
+    background-color: #5B4A3E;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -57,7 +61,6 @@ button {
     margin-top: 40px;
 }
 
-
 button:active {
 	transform: scale(0.95);
 }
@@ -67,8 +70,8 @@ button:focus {
 }
 
 button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: #5B4A3E;
+	background-color: #5B4A3E;
 }
 
 form {
@@ -80,18 +83,20 @@ form {
 	padding: 0 50px;
 	height: 100%;
 	text-align: center;
+	color: #5B4A3E;
 }
 
 input {
-	background-color: #eee;
+	background-color: #EFE7DA;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
+	color: #5B4A3E;
 }
 
 .container {
-	background-color: #fff;
+	background-color: #FFFFFF;
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
@@ -156,18 +161,18 @@ input {
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.container.right-panel-active .overlay-container {
 	transform: translateX(-100%);
 }
 
 .overlay {
-    background: #001f3f; /* fallback navy */
-    background: -webkit-linear-gradient(to right, #001f3f, #003366);
-    background: linear-gradient(to right, #001f3f, #003366);
+    background: #F6F2EB;
+    background: -webkit-linear-gradient(to right, #F6F2EB, #EFE7DA);
+    background: linear-gradient(to right, #F6F2EB, #EFE7DA);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
-    color: #FFFFFF;
+    color: #5B4A3E;
     position: relative;
     left: -100%;
     height: 100%;
@@ -175,7 +180,6 @@ input {
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 }
-
 
 .container.right-panel-active .overlay {
   	transform: translateX(50%);
@@ -194,6 +198,7 @@ input {
 	width: 50%;
 	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
+	color: #5B4A3E;
 }
 
 .overlay-left {
@@ -218,7 +223,7 @@ input {
 }
 
 .social-container a {
-	border: 1px solid #DDDDDD;
+	border: 1px solid #EFE7DA;
 	border-radius: 50%;
 	display: inline-flex;
 	justify-content: center;
@@ -226,5 +231,5 @@ input {
 	margin: 0 5px;
 	height: 40px;
 	width: 40px;
+	color: #5B4A3E;
 }
-

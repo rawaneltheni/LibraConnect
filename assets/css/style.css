@@ -743,3 +743,263 @@ select:focus {
   color: var(--color-text-muted);
   letter-spacing: 0.03em;
 }
+/* =========================================================
+   CATALOG PAGE LAYOUT
+   ========================================================= */
+
+.catalog-page {
+  padding: 2.5rem 0 3rem;
+}
+
+/* outer white shell */
+.catalog-shell {
+  background: var(--color-surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem 1.75rem 2rem;
+}
+
+/* top search bar + user chip */
+.catalog-top {
+  border-radius: 12px;
+  background: var(--color-bg);
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--color-border);
+}
+
+.catalog-search {
+  background: #fff;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  padding: 0.7rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+.catalog-search:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus);
+  border-color: var(--color-primary);
+}
+
+.user-chip {
+  border-radius: 999px;
+  background: var(--color-surface);
+  padding: 0.25rem 0.9rem;
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.user-chip-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* section headings */
+.catalog-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.catalog-see-all {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Recommended strip (horizontal scroll) */
+.recommended-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.75rem 0 0.25rem;
+}
+
+.recommended-strip::-webkit-scrollbar {
+  height: 6px;
+}
+.recommended-strip::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+
+/* common book cards */
+.book-card {
+  min-width: 130px;
+  max-width: 150px;
+  cursor: pointer;
+}
+
+.book-card-inner {
+  border-radius: 14px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 0.65rem;
+  height: 100%;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out, background 0.18s ease-out;
+}
+
+.book-card-inner:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--color-primary);
+  background: #fff;
+}
+
+.book-cover {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 160px;
+  margin-bottom: 0.55rem;
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.1rem;
+}
+
+.book-author {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* category pills */
+.genre-btn {
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  margin: 0 0.25rem 0.5rem 0;
+  transition: background 0.15s ease-out, color 0.15s ease-out,
+    border-color 0.15s ease-out;
+}
+
+.genre-btn:hover {
+  border-color: var(--color-border);
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.genre-btn.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* grid books (under categories) */
+.catalog-grid-card .book-card-inner {
+  padding: 0.6rem;
+}
+
+.catalog-grid-card .book-cover {
+  height: 130px;
+}
+
+/* right detail panel */
+.slide-panel {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 18px;
+  padding: 1.5rem 1.4rem 1.8rem;
+  min-height: 100%;
+  position: relative;
+  transform: translateX(110%);
+  transition: transform 0.35s ease-out;
+}
+
+.slide-panel.open {
+  transform: translateX(0);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.panel-img {
+  width: 100%;
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.75rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+#panelTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+#panelAuthor,
+#panelGenre {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+#panelIntro {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-top: 0.6rem;
+}
+
+/* dark overlay when panel slides in (optional) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-out;
+  z-index: 900;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+  .catalog-shell {
+    padding: 1.25rem 1.1rem 1.75rem;
+  }
+  .slide-panel {
+    margin-top: 1.5rem;
+  }
+}

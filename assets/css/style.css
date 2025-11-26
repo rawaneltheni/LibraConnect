@@ -5,20 +5,20 @@
 /* ---------- CSS Variables (Theme) ---------- */
 
 :root {
-  /* New main palette (warm art theme) */
-  --color-bg: #FFF4E6;          /* main background – warm cream */
-  --color-primary: #FF7A3C;     /* bright orange accent */
-  --color-secondary: #FFE0C2;   /* soft peach secondary */
+  /* New main palette (warm library theme) */
+  --color-bg: #F6F2EB;          /* main background */
+  --color-primary: #5B4A3E;     /* dark accent */
+  --color-secondary: #EFE7DA;   /* soft secondary */
 
   /* Derived neutrals */
-  --color-text: #1F2933;        /* dark slate text */
-  --color-text-muted: #6B7280;  /* muted gray */
-  --color-border: #F5D0A9;      /* light peach border */
+  --color-text: #5B4A3E;        /* main text */
+  --color-text-muted: #8C7C6E;  /* muted text */
+  --color-border: #E0D6C8;      /* light border */
   --color-surface: #FFFFFF;     /* white surfaces */
 
   /* States */
-  --color-primary-soft: rgba(255, 122, 60, 0.08);
-  --color-focus: rgba(255, 122, 60, 0.35);
+  --color-primary-soft: rgba(91, 74, 62, 0.08);
+  --color-focus: rgba(91, 74, 62, 0.35);
 
   /* Typography */
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -42,7 +42,7 @@
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
-  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
 
   /* Transitions */
   --transition-fast: 150ms ease-out;
@@ -121,12 +121,15 @@ main {
 
 .section-header {
   margin-bottom: var(--space-lg);
+  position: relative;   /* ensure header is above slider */
+  z-index: 2;
 }
 
 .section-title {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-xxl);
   font-weight: 600;
   letter-spacing: 0.03em;
+  color: var(--color-text);    /* fixed typo */
 }
 
 .section-subtitle {
@@ -149,10 +152,10 @@ main {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 244, 230, 0.98); /* var(--color-bg) with slight transparency */
+  background: rgba(246, 242, 235, 0.98); /* var(--color-bg) with slight transparency */
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 .header-bar .container {
@@ -252,7 +255,7 @@ main {
   padding-block: 0.55rem;
   font-size: var(--fs-sm);
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
 }
 
 #searchBox:focus {
@@ -269,8 +272,8 @@ main {
   padding: var(--space-xl) var(--space-md);
   background: linear-gradient(
     145deg,
-    rgba(255, 228, 196, 0.9),
-    rgba(246, 228, 214, 0.85)
+    rgba(246, 242, 235, 0.9),
+    rgba(239, 231, 218, 0.85)
   );
   color: var(--color-text);
 }
@@ -341,8 +344,8 @@ main {
 .card {
   border-radius: var(--radius-md);
   border-color: var(--color-border);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
-  background: #FFF8F0;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  background: #F6F2EB;
 }
 
 .card-title {
@@ -379,10 +382,10 @@ main {
 
 .btn-primary:hover,
 .btn-main:hover {
-  background: #F56020; /* darker orange */
-  border-color: #F56020;
+  background: #4A3B31; /* darker variant of primary */
+  border-color: #4A3B31;
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
 }
 
 .btn-outline-main {
@@ -401,7 +404,7 @@ main {
 
 .btn-outline-main:hover {
   background: var(--color-primary-soft);
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 
@@ -509,6 +512,7 @@ select:focus {
     text-align: center;
   }
 }
+
 /* =========================================================
    HOME / INDEX PAGE
    ========================================================= */
@@ -584,15 +588,15 @@ select:focus {
   text-transform: uppercase;
   color: var(--color-text);
   cursor: pointer;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast),
     background var(--transition-fast);
 }
 
 .hero-secondary-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
-  background: #FFC996;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  background: #EADFCC;
 }
 
 .hero-play-icon {
@@ -609,12 +613,15 @@ select:focus {
 /* ---------- Featured Slider ---------- */
 
 .featured-section {
-  margin-top: -4.5rem; /* pull cards up over hero like in the design */
+  margin-top: 2rem;           /* was -4.5rem; now safe so header is visible */
   padding-bottom: 4.5rem;
+  position: relative;
 }
 
 .featured-swiper {
   padding-block: 2rem 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .featured-swiper .swiper-wrapper {
@@ -630,7 +637,7 @@ select:focus {
 
 /* Card inside the slide */
 .book-card {
-  background: #FFF8F0;
+  background: #F6F2EB;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
@@ -700,7 +707,7 @@ select:focus {
 
 /* Swiper pagination (dots) */
 .featured-swiper .swiper-pagination-bullet {
-  background: rgba(255, 122, 60, 0.35);
+  background: rgba(91, 74, 62, 0.35);
   opacity: 1;
 }
 
@@ -720,9 +727,10 @@ select:focus {
   }
 
   .featured-section {
-    margin-top: -3rem;
+    margin-top: 1rem;   /* softer pull-up on mobile */
   }
 }
+
 /* --- Footer bottom line centering --- */
 .footer-bottom {
   width: 100%;

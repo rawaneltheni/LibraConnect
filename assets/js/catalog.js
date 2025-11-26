@@ -225,23 +225,24 @@ overlay.onclick = () => {
 
 // ------------- SEARCH (top input) -------------
 
-document.addEventListener("includesLoaded", () => {
+document.addEventListener('includesLoaded', () => {
   const searchInput = document.getElementById("searchBox");
-  if (!searchInput) return;
+  const bookCards = document.querySelectorAll(".book-card"); // all book cards
 
   searchInput.addEventListener("keyup", () => {
-    const query = searchInput.value.toLowerCase();
+    const query = searchInput.value.toLowerCase(); // get input and lowercase
 
-    // filter books by title
-    const filtered = books.filter((b) =>
-      b.title.toLowerCase().includes(query)
-    );
-    renderBooks(filtered.length ? filtered : books);
-    
-    // update cards NodeList each time (because we re-render)
-    // recommended stays the same – you can also filter it here if you like
+    bookCards.forEach(card => {
+      const title = card.querySelector("h5").textContent.toLowerCase(); // get book title
+      if (title.includes(query)) {
+        card.style.display = ""; // show card
+      } else {
+        card.style.display = "none"; // hide card
+      }
+    });
   });
-});
+
+})
 
 // ------------- INITIAL RENDER -------------
 

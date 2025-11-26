@@ -8,37 +8,81 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- Swiper CSS (for 3D coverflow slider) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
   <!-- Header include -->
-   <div data-include="includes/header.html"></div>
+  <div data-include="includes/header.html"></div>
 
-  <!-- Navbar include -->
-    <div data-include="includes/menu.html"></div>
-  <div class="container mt-4">
-    <div>
-    <h2>Welcome to LibraConnect!</h2>
-    <p>
-      LibraConnect is a simple online library system where users can browse books, borrow them, 
-      and track their borrowing history. You can explore a selection of featured books, learn more 
-      about them, and use the “Read More” button to expand each description.
-    </p>
-    </div>
+  <!-- Navbar + search include -->
+  <div data-include="includes/menu.html"></div>
 
+  <main class="index-page">
 
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-eyebrow">Campus Digital Library</p>
+          <h1 class="hero-title">
+            Discover Books and Authors Effortlessly
+          </h1>
+          <p class="hero-subtitle">
+            Welcome to <strong>LibraConnect</strong>, your go-to platform for exploring
+            books, authors, and recommendations. Search the catalog, track your
+            history, and manage your borrowing in one place.
+          </p>
 
-  <main class="container my-4">
-    <h2>Featured Books</h2>
-    <div id="featured-row" class="row g-3"></div>
+          <div class="hero-actions">
+            <a href="catalog.html" class="btn-main hero-cta">
+              Search Books
+            </a>
+
+            <button type="button" class="hero-secondary-btn">
+              <span class="hero-play-icon">&#9658;</span>
+              <span>Watch intro</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED BOOKS SECTION -->
+    <section class="featured-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Featured Books</h2>
+          <p class="section-subtitle">
+            A curated selection of popular and recommended titles.
+          </p>
+        </div>
+
+        <!-- Swiper container -->
+        <div class="swiper featured-swiper">
+          <div class="swiper-wrapper" id="featured-swiper-wrapper">
+            <!-- Slides are injected by index.js -->
+          </div>
+
+          <!-- Pagination dots -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer include -->
   <div data-include="includes/footer.html"></div>
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="assets/js/index.js"></script>
   <script src="assets/js/include.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

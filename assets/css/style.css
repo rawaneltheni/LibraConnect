@@ -1,0 +1,738 @@
+/* =========================================================
+   LibraConnect – Global Styles & Theme Variables
+   ========================================================= */
+
+/* ---------- CSS Variables (Theme) ---------- */
+
+:root {
+  /* New main palette (warm art theme) */
+  --color-bg: #FFF4E6;          /* main background – warm cream */
+  --color-primary: #FF7A3C;     /* bright orange accent */
+  --color-secondary: #FFE0C2;   /* soft peach secondary */
+
+  /* Derived neutrals */
+  --color-text: #1F2933;        /* dark slate text */
+  --color-text-muted: #6B7280;  /* muted gray */
+  --color-border: #F5D0A9;      /* light peach border */
+  --color-surface: #FFFFFF;     /* white surfaces */
+
+  /* States */
+  --color-primary-soft: rgba(255, 122, 60, 0.08);
+  --color-focus: rgba(255, 122, 60, 0.35);
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-xxl: 2rem;
+
+  /* Spacing & layout */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --content-width: 1120px;
+
+  /* Radius & shadows */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-med: 220ms ease-out;
+}
+
+/* ---------- Reset / Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Remove default padding / margin on common elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ---------- Layout helpers ---------- */
+
+main {
+  padding-block: var(--space-xl);
+}
+
+.section {
+  padding-block: var(--space-xl);
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-border);
+}
+
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-title {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.section-subtitle {
+  margin-top: var(--space-xs);
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
+/* You are already using Bootstrap's .container,
+   this just soft-tunes it without breaking Bootstrap. */
+
+.container {
+  max-width: var(--content-width);
+}
+
+/* ---------- Header & Navigation ---------- */
+/* Uses existing HTML: header.header-bar, .nav-links, .right-nav, .head-title, .search, .user */
+
+.header-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 244, 230, 0.98); /* var(--color-bg) with slight transparency */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.header-bar .container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding-block: 0.7rem;
+}
+
+/* Site title */
+.web-title .head-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* Right side icons (search / user) */
+.right-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.right-nav svg {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  fill: none;
+  stroke: var(--color-text-muted);
+  transition: transform var(--transition-fast), stroke var(--transition-fast),
+    opacity var(--transition-fast);
+  opacity: 0.9;
+}
+
+.right-nav svg:hover {
+  transform: translateY(-1px) scale(1.03);
+  stroke: var(--color-primary);
+  opacity: 1;
+}
+
+/* Main nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  font-size: var(--fs-sm);
+}
+
+.nav-link {
+  position: relative;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  padding-block: 0.25rem;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 0%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  transition: width var(--transition-med);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+  color: var(--color-text);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Search box in menu.html */
+#searchBox {
+  margin-block: var(--space-md);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  padding-inline: 1rem;
+  padding-block: 0.55rem;
+  font-size: var(--fs-sm);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+}
+
+#searchBox:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-focus);
+}
+
+/* ---------- Footer ---------- */
+/* Uses .main-footer from includes/footer.html */
+
+.main-footer {
+  margin-top: var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 228, 196, 0.9),
+    rgba(246, 228, 214, 0.85)
+  );
+  color: var(--color-text);
+}
+
+.main-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Map container keeps Bootstrap classes (rounded-4, shadow-sm, etc.) */
+.main-footer .map-container {
+  flex: 1 1 50%;
+  min-width: 260px;
+}
+
+/* Contact / menu column */
+.main-footer .footer-menu {
+  flex: 1 1 220px;
+}
+
+.main-footer .widget-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.main-footer p {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.main-footer a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  color: var(--color-text);
+}
+
+.main-footer a:hover {
+  color: var(--color-primary);
+}
+
+/* Horizontal rule & team text */
+.main-footer hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  margin-block: var(--space-md);
+}
+
+.main-footer small {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Cards / Surfaces (generic) ---------- */
+
+.surface {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-md);
+}
+
+/* If you use Bootstrap cards, this will lightly theme them */
+.card {
+  border-radius: var(--radius-md);
+  border-color: var(--color-border);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+  background: #FFF8F0;
+}
+
+.card-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-primary,
+.btn-main {
+  /* support existing .btn-primary (Bootstrap) & a custom .btn-main */
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: 999px;
+  padding-inline: 1.25rem;
+  padding-block: 0.55rem;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: background var(--transition-med), transform var(--transition-fast),
+    box-shadow var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-primary:hover,
+.btn-main:hover {
+  background: #F56020; /* darker orange */
+  border-color: #F56020;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+}
+
+.btn-outline-main {
+  border-radius: 999px;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-text);
+  padding-inline: 1.1rem;
+  padding-block: 0.5rem;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: background var(--transition-med), color var(--transition-med),
+    box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-outline-main:hover {
+  background: var(--color-primary-soft);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ---------- Forms / Inputs (global) ---------- */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  padding: 0.55rem 0.75rem;
+  background: rgba(255, 255, 255, 0.98);
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-focus);
+  background: #ffffff;
+}
+
+/* ---------- Utilities ---------- */
+
+.text-muted-soft {
+  color: var(--color-text-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap-sm {
+  gap: var(--space-sm);
+}
+.gap-md {
+  gap: var(--space-md);
+}
+.gap-lg {
+  gap: var(--space-lg);
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+.mt-md {
+  margin-top: var(--space-md);
+}
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.rounded-pill {
+  border-radius: 999px;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 768px) {
+  .header-bar .container {
+    flex-wrap: wrap;
+    row-gap: var(--space-sm);
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .right-nav {
+    order: -1;
+  }
+
+  .main-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: var(--space-md);
+  }
+
+  .footer-bottom small {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+}
+/* =========================================================
+   HOME / INDEX PAGE
+   ========================================================= */
+
+.index-page {
+  padding-top: 3rem;
+}
+
+/* ---------- Hero ---------- */
+
+.hero-section {
+  /* single-color background based on page bg */
+  background: var(--color-bg);
+  padding-block: 4.5rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text {
+  max-width: 640px;
+}
+
+.hero-eyebrow {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.hero-title {
+  font-size: clamp(2.3rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: var(--space-md);
+}
+
+.hero-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.hero-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.hero-cta {
+  padding-inline: 1.8rem;
+  padding-block: 0.7rem;
+}
+
+.hero-secondary-btn {
+  border: none;
+  background: var(--color-secondary);
+  border-radius: 999px;
+  padding: 0.5rem 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.hero-secondary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+  background: #FFC996;
+}
+
+.hero-play-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-bg);
+  font-size: 0.8rem;
+}
+
+/* ---------- Featured Slider ---------- */
+
+.featured-section {
+  margin-top: -4.5rem; /* pull cards up over hero like in the design */
+  padding-bottom: 4.5rem;
+}
+
+.featured-swiper {
+  padding-block: 2rem 3rem;
+}
+
+.featured-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+/* Size of each slide (auto so coverflow can work) */
+.featured-swiper .swiper-slide {
+  width: 220px;
+  max-width: 260px;
+  transition: transform var(--transition-med), box-shadow var(--transition-med);
+}
+
+/* Card inside the slide */
+.book-card {
+  background: #FFF8F0;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  padding: 0.75rem 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 100%;
+}
+
+/* Image at top */
+.book-card-cover {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 220px;
+  display: flex;
+  align-items: stretch;
+}
+
+.book-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-med);
+}
+
+.book-card:hover .book-card-cover img {
+  transform: scale(1.04);
+}
+
+.book-title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.book-author {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* Read-more description */
+.card-description {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  max-height: 60px; /* collapsed */
+  overflow: hidden;
+  transition: max-height var(--transition-med);
+}
+
+.card-description.expanded {
+  max-height: 400px; /* expanded */
+}
+
+/* Read-more button */
+.read-toggle {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-top: 0.2rem;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* Swiper pagination (dots) */
+.featured-swiper .swiper-pagination-bullet {
+  background: rgba(255, 122, 60, 0.35);
+  opacity: 1;
+}
+
+.featured-swiper .swiper-pagination-bullet-active {
+  background: var(--color-primary);
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-block: 3rem 5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .featured-section {
+    margin-top: -3rem;
+  }
+}
+/* --- Footer bottom line centering --- */
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+.footer-bottom small {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}

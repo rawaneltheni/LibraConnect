@@ -15,9 +15,7 @@ signInButton.addEventListener('click', () => {
 
 // ==================== Check @limu.edu.ly ====================
 
-const forms = document.querySelectorAll("form.limu-check");
-
-forms.forEach(form => {
+const form = document.querySelector("form.limu-check");
 
 	form.addEventListener("submit", function(event) {
 
@@ -39,7 +37,7 @@ forms.forEach(form => {
 		} else alert("Please use a valid @limu.edu.ly email.");
 		
     });
-});
+
 
 // ==================== Google reCAPTCHA ====================
 

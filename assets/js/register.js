@@ -31,7 +31,7 @@ const form = document.querySelector("form.limu-check");
 		const email = emailInput.value.trim();
 
 		// Check if email ends with @limu.edu.ly
-		if (/@limu\.edu\.ly$/i.test(email)) {
+		if (/@limu\.edu\.ly$/.test(email)) {
 			// Email is valid, redirect to index.html
 			window.location.href = "index.html";
 		} else alert("Please use a valid @limu.edu.ly email.");

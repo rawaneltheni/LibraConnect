@@ -53,11 +53,11 @@ function renderFeatured() {
     .map((book, index) => {
       return `
         <div class="swiper-slide">
-          <article class="book-card">
-            <div class="book-card-cover">
+          <article class="book-cards">
+            <div class="book-cards-cover">
               <img src="${book.img}" alt="${book.title}">
             </div>
-            <div class="book-card-body">
+            <div class="book-cards-body">
               <h3 class="book-title">${book.title}</h3>
               <p class="book-author">${book.author}</p>
               <p class="card-description" id="desc-${index}">

@@ -646,6 +646,11 @@ select:focus {
   flex-direction: column;
   gap: 0.6rem;
   height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.book-card:hover{
+   box-shadow:0 0 0 3px var(--color-focus);;
 }
 
 /* Image at top */
@@ -747,8 +752,12 @@ select:focus {
    CATALOG PAGE LAYOUT
    ========================================================= */
 
+   /*recomended*/
+
+
 .catalog-page {
   padding: 2.5rem 0 3rem;
+  background-color: #F6F2EB;  ;
 }
 
 /* outer white shell */
@@ -781,27 +790,64 @@ select:focus {
   box-shadow: 0 0 0 3px var(--color-focus);
   border-color: var(--color-primary);
 }
-
-.user-chip {
-  border-radius: 999px;
-  background: var(--color-surface);
-  padding: 0.25rem 0.9rem;
-  border: 1px solid var(--color-border);
-  font-size: 0.9rem;
+.card-body{
+  background-color:#F6F2EB ;
+  border: none;
+ 
 }
 
-.user-chip-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--color-secondary);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: var(--color-primary);
-  font-weight: 600;
+
+.card-img-top{
+  height:100% ;
+  width: 100%;
+  padding: 5px;
+  
 }
+
+/*======================make all books the same size======================*/
+.catalog-bookCover{
+ height: 250px;
+ 
+
+}
+.book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* space out image and text */
+  height: 400px; /* fixed height */
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 10px;
+  width: 1px;
+}
+
+
+.book-card img {
+  width: 100%;
+  /* height: 200px; same for all */
+  /* object-fit: cover; */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit:cover;
+}
+
+.book-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 200px); /* remaining space after image */
+  text-align: center;
+}
+
+.book-card h5, 
+.book-card p {
+  margin: 5px 0;
+}
+
+/*============================================*/
+
 
 /* section headings */
 .catalog-section-title {
@@ -841,6 +887,7 @@ select:focus {
 .book-card {
   min-width: 130px;
   max-width: 150px;
+
   cursor: pointer;
 }
 
@@ -926,19 +973,20 @@ select:focus {
 }
 
 /* right detail panel */
-.slide-panel {
-  background: var(--color-primary);
-  color: #fff;
-  border-radius: 18px;
-  padding: 1.5rem 1.4rem 1.8rem;
-  min-height: 100%;
-  position: relative;
-  transform: translateX(110%);
-  transition: transform 0.35s ease-out;
+#slidePanel {
+  position: fixed;   /* overlay on top of content */
+  top: 0;
+  right: -100%;      /* start hidden off-screen */
+  width: 30%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;     /* above everything */
 }
 
-.slide-panel.open {
-  transform: translateX(0);
+#slidePanel.open {
+  right: 0;          /* slide in */
 }
 
 .close-btn {
@@ -979,28 +1027,30 @@ select:focus {
 }
 
 /* dark overlay when panel slides in (optional) */
-.overlay {
+#overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease-out;
-  z-index: 900;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
 }
 
-.overlay.show {
+#overlay.show {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
 }
-
 /* responsive */
 @media (max-width: 992px) {
   .catalog-shell {
     padding: 1.25rem 1.1rem 1.75rem;
   }
   .slide-panel {
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
   }
 }
 /* =========================================================

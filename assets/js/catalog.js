@@ -1,9 +1,10 @@
 // Recommended books
 const recommendedBooks = [
+   { title: 'Grays Anatomy for Students', author: 'Richard L. Drake, A. Wayne Vogl, Adam W. M. Mitchell', cover: 'assets/imges/book1.png' },
+  { title: 'Cracking The Coding Interview', author: 'Gayle Laakmann McDowel', cover: 'assets/imges/book2.png' },
   { title: 'Sapiens', author: 'Yuval Noah Harari', cover: 'assets/imges/book 16.jpg' },
-  { title: 'Grays Anatomy for Students', author: 'Richard L. Drake, A. Wayne Vogl, Adam W. M. Mitchell', cover: 'assets/imges/book1.png'},
-  {  title: 'Cracking The Coding Interview', author: 'Gayle Laakmann McDowel', cover: 'assets/imges/book2.png' }  
-];
+  {title: "Atomic Habits",author: "James Clear",cover: "assets/imges/book3.png"},
+  { title: 'The Midnight Library', author: 'Matt Haig', cover: 'assets/imges/book 17.jpg' }];
 
 const books=[
     { title: "Atomic Habits", author: "James Clear", genre: "Self-help" , image: "assets/imges/book3.png",  
@@ -51,14 +52,16 @@ function renderCatalog(){
  books.forEach((book,index) => {
   const card = `
   <div class="col-md-4 mb-3 book-card" data-index="${index}">
-    <div class="card">
-      <div class="card-body">
-        <img src="${book.image}" class="card-img-top" alt="${book.title}">
+   
+      <div class="card-body ">
+        <div class="catalog-bookCover">
+          <img src="${book.image}" class="card-img-top" alt="${book.title}">      
+        <div>          
         <h5>${book.title}</h5>
         <p>${book.author}</p>        
-        <p>${book.genre}</p>
+        <p>${book.genre}</p>               
       </div>
-    </div>
+   
   </div>`;
   catalog.innerHTML += card;
  })
@@ -66,25 +69,48 @@ function renderCatalog(){
 // renderCatalog();
 
 // Render recommended books as Bootstrap cards
+// function renderRecommended() {
+//   const container = document.getElementById('recommended-books');
+//   container.innerHTML = '';
+//   recommendedBooks.forEach((b) => {
+//     const card = document.createElement('div');
+//     card.className = 'col';
+//     card.innerHTML = `
+//       <div class="card h-100">
+//         <img src="${b.cover}" class="card-img-top" alt="${b.title}" style="height:200px; object-fit:cover;">
+//         <div class="card-body">
+//           <h5 class="card-title">${b.title}</h5>
+//           <p class="card-text">${b.author}</p>          
+//         </div>
+//       </div>
+//     `;
+//     container.appendChild(card);
+//   });
+// }
+// renderRecommended()
+
 function renderRecommended() {
   const container = document.getElementById('recommended-books');
-  container.innerHTML = '';
+  container.innerHTML = "";
+
   recommendedBooks.forEach((b) => {
     const card = document.createElement('div');
-    card.className = 'col';
+    card.className = 'borrow-card';
+
     card.innerHTML = `
-      <div class="card h-100">
-        <img src="${b.cover}" class="card-img-top" alt="${b.title}" style="height:200px; object-fit:cover;">
-        <div class="card-body">
-          <h5 class="card-title">${b.title}</h5>
-          <p class="card-text">${b.author}</p>          
+      <div class="borrow-rec-card catalog-grid-card">
+        <div class="book-card-inner">
+          <div class="book-cover">
+            <img src="${b.cover}" alt="${b.title}">
+          </div>
+          <div class="book-title">${b.title}</div>
+          <div class="book-author">${b.author}</div>          
         </div>
       </div>
     `;
     container.appendChild(card);
   });
 }
-renderRecommended()
 
 function renderButtons(){
   booksGenre.innerHTML="";
@@ -158,11 +184,12 @@ document.addEventListener("click", (e) => {
   // const book = books[index];
 
   // Fill panel with book info
-  panelImage.src = book.image;
-  panelTitle.textContent = book.title;
-  panelAuthor.textContent = "Author: " + book.author;
-  panelGenre.textContent = "Genre: " + book.genre;
-  panelIntro.textContent = book.blurb; // Add intro to your data
+  console.log("clicked")
+  panelImage.src = books.image;
+  panelTitle.textContent = books.title;
+  panelAuthor.textContent = "Author: " + books.author;
+  panelGenre.textContent = "Genre: " + books.genre;
+  panelIntro.textContent = books.blurb; // Add intro to your data
 
   // Show panel
   slidePanel.classList.add("open");
@@ -203,5 +230,6 @@ document.addEventListener('includesLoaded', () => {
 
 })
 
+renderRecommended()
 renderCatalog();
 renderButtons()

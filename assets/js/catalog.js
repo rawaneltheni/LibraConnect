@@ -53,10 +53,10 @@ function renderCatalog(){
   const card = `
   <div class="col-md-4 mb-3 book-card" data-index="${index}">
    
-      <div class="card-body ">
+      <div class="book-card-inner ">
         <div class="catalog-bookCover">
           <img src="${book.image}" class="card-img-top" alt="${book.title}">      
-        <div>          
+        </div>          
         <h5>${book.title}</h5>
         <p>${book.author}</p>        
         <p>${book.genre}</p>               
@@ -148,14 +148,14 @@ function renderBooks(list) {
   list.forEach((book, index) => {
     const html = `
        <div class="col-md-4 mb-3 book-card" data-index="${index}">
-        <div class="card">
-          <div class="card-body">
-            <img src="${book.image}" class="card-img-top" alt="${book.title}">
+        
+          <div class="book-card-inner">
+          <div class="catalog-bookCover"><img src="${book.image}" class="card-img-top" alt="${book.title}"></div>            
             <h5>${book.title}</h5>
             <p>${book.author}</p>        
             <p>${book.genre}</p>
           </div>
-        </div>
+       
       </div>`;
     catalog.innerHTML += html;
   });

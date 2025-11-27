@@ -180,16 +180,16 @@ document.addEventListener("click", (e) => {
   const card = e.target.closest(".book-card");//the click is only fired if its the card it self or its childern
   if (!card) return;//If i click anywhere else but the card it woudn't work
 
-  // const index = card.dataset.index;
-  // const book = books[index];
+  const index = card.dataset.index;
+  const book = books[index];
 
   // Fill panel with book info
   console.log("clicked")
-  panelImage.src = books.image;
-  panelTitle.textContent = books.title;
-  panelAuthor.textContent = "Author: " + books.author;
-  panelGenre.textContent = "Genre: " + books.genre;
-  panelIntro.textContent = books.blurb; // Add intro to your data
+  panelImage.src = book.image;
+  panelTitle.textContent = book.title;
+  panelAuthor.textContent = "Author: " + book.author;
+  panelGenre.textContent = "Genre: " + book.genre;
+  panelIntro.textContent = book.blurb; // Add intro to your data
 
   // Show panel
   slidePanel.classList.add("open");

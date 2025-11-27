@@ -819,8 +819,7 @@ select:focus {
   border-radius: 12px;
   overflow: hidden;
   background-color: #fff;
-  padding: 10px;
-  width: 1px;
+  padding: 10px;  
 }
 
 
@@ -977,9 +976,10 @@ select:focus {
   position: fixed;   /* overlay on top of content */
   top: 0;
   right: -100%;      /* start hidden off-screen */
-  width: 30%;
+  width: 20%;
   height: 100%;
-  background-color: #fff;
+  background-color: #5B4A3E;
+  color: #fff;
   box-shadow: -2px 0 5px rgba(0,0,0,0.2);
   transition: right 0.3s ease;
   z-index: 1000;     /* above everything */
@@ -988,7 +988,13 @@ select:focus {
 #slidePanel.open {
   right: 0;          /* slide in */
 }
-
+.inner-slide{
+  margin-left: 10px;
+}
+.panel-blurb{
+  width:50px;
+  text-wrap: auto;
+}
 .close-btn {
   position: absolute;
   top: 0.6rem;
@@ -1001,12 +1007,17 @@ select:focus {
 }
 
 .panel-img {
-  width: 100%;
+  width: 250px;
   border-radius: 14px;
   background: #fff;
   padding: 0.75rem;
   object-fit: contain;
   margin-bottom: 1rem;
+  align-items: center;
+}
+.panel-img-container{
+  align-items: center;
+  background-color: #2f7a47;
 }
 
 #panelTitle {

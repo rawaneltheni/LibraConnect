@@ -50,14 +50,18 @@
     </div>
 
     <aside id="slidePanel" class="slide-panel">
-      <button id="closePanel" class="close-btn" type="button">×</button>
 
-      <img id="panelImage" class="panel-img" alt="Book cover" />
+      <div class="inner-slide">
+        <div class="panel-img-container"><button id="closePanel" class="close-btn" type="button">×</button></div>
+        
 
-      <h2 id="panelTitle"></h2>
-      <p id="panelAuthor"></p>
-      <p id="panelGenre"></p>
-      <p id="panelIntro"></p>
+        <img id="panelImage" class="panel-img" alt="Book cover" />
+
+        <h2 id="panelTitle"></h2>
+        <p id="panelAuthor"></p>
+        <p id="panelGenre"></p>
+        <span class="panel-blurb"><p id="panelIntro"></p></span>        
+        </div>      
     </aside>
     <!-- Background overlay for panel -->
     <div id="overlay" class="overlay"></div>
